@@ -4,6 +4,10 @@ from PIL import Image
 import os
 from gtts import gTTS
 from googletrans import Translator
+import warnings
+
+# Suppress deprecation warnings
+warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 # Load the Excel file containing questions and answers
 def load_excel_data(file_path):
@@ -15,7 +19,7 @@ def main(page: ft.Page):
     page.scroll = "auto"
     
     # Load Excel data
-    excel_file = 'questions_answers.xlsx'
+    excel_file = 'questions_answers.xlsx'  # Make sure this file is present in the same directory
     df = load_excel_data(excel_file)
 
     # Page Title
@@ -101,7 +105,7 @@ def main(page: ft.Page):
         {"number": "9147394695", "language": "Hindi"},
         {"number": "9147394695", "language": "Bengali"},
         {"number": "7595063323", "language": "Tamil"},
-        {"number": "6293415105", "language": "Telegu"}
+        {"number": "6293415105", "language": "Telugu"}
     ]
     whatsapp_message = "Hi Anu! I Have a Query."
 
